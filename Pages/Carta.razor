@@ -1,0 +1,37 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">@nombre</h5>
+        <p class="card-text">Birthday: @nacimiento</p>
+        <p class="card-text">Nickname: @seudonimo</p>
+        <p class="card-text">Actor/Actress: @actor</p>
+        <p class="card-text">Status: @estado</p>
+        <p class="card-title">Occupation</p>
+        @foreach (var ocu in ocupacion)
+        {
+           <span class="badge bg-primary">@ocu</span>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+@code{
+  [Parameter]
+  public string nombre {get; set;}
+  [Parameter]
+  public string nacimiento {get; set;}
+  [Parameter]
+  public string seudonimo {get; set;}
+  [Parameter]
+  public string actor {get; set;}
+  [Parameter]
+  public string estado {get; set;}
+  [Parameter]
+  public List<string> ocupacion {get; set;}
+  
+}

@@ -1,0 +1,18 @@
+@page "/"
+@using Modelos
+@using Services
+@inject IBreakingBad service
+
+@foreach (var personaje in personajes)
+{
+    <Carta nombre=personaje.Name nacimiento=personaje.birthday seudonimo=personaje.nickname actor=personaje.actor estado=personaje.status ocupacion=ocupacion></Carta>
+    
+}
+    
+@code {
+    IEnumerable<Personaje> personajes = List<Personaje>();
+    protected override async OnInitializeAsync(){
+        personajes = await service.getAllCharacters();
+    }
+}
+
